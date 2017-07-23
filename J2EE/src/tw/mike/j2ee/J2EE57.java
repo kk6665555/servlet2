@@ -20,7 +20,10 @@ public class J2EE57 extends HttpServlet {
 		List<AsyncContext> asyncs = (List)ServletContext.getAttribute("asyncs");
 		System.out.println(asyncs.getClass().getName());
 		synchronized (asyncs) {//鎖定
-			asyncs.add(request.startAsync());
+			AsyncContext async = request.startAsync();
+			//System.out.println(async.getTimeout());
+			async.setTimeout(900000000);
+			asyncs.add(async);
 		}
 		
 	}

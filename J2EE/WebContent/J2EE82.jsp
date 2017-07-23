@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <c:set var="theString" value="I am a test String"/>
 ${fn:contains(theString,"test") }
 <hr>

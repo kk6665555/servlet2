@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function getData(){
+		$.get("J2EE54",function(data,status){
+			$("#here").html(data);
+		})
+	}
+	function getData2(){
+		$.get("J2EE55",function(data,status){
+			$("#here2").html(data);
+		})
+	}
+	function getData3(){
+		$.get("J2EE56",function(data,status){
+			$("#here3").html(data);
+		})
+	}
+	function getData4(){
+		$.get("J2EE57",function(data,status){
+			$("#msg").html(data);
+		})
+	}
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Big Company</h1>
+<hr/>
+<input type="button" onclick="getData()" value="Get Data">
+<div id="here"></div>
+<hr/>
+<input type="button" onclick="getData2()" value="Get Data2">
+<div id="here2"></div>
+<hr/>
+<input type="button" onclick="getData3()" value="Get Data3">
+<div id="here3"></div>
+<hr/>
+<input type="button" onclick="getData4()" value="Get Data4">
+<div id="msg"></div>
+</body>
+</html>

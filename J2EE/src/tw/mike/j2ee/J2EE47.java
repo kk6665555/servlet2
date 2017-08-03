@@ -24,14 +24,16 @@ public class J2EE47 extends HttpServlet {
 			Connection conn=DriverManager.getConnection(
 						"jdbc:mysql://localhost/oneone","root","root");
 			HttpSession session = request.getSession(false);
-			String dbid= (String)session.getAttribute("dbid");	
+				
 			if(session!=null) {	 
-					session.invalidate();
+				String dbid= (String)session.getAttribute("dbid");
+				Statement stmt= conn.createStatement();
+				stmt.executeUpdate("update member set islogin=0 where account= " + dbid);
+				session.invalidate();
 			}
 				
 			
-			Statement stmt= conn.createStatement();
-			stmt.executeUpdate("update member set islogin=0 where account= " + dbid);
+			
 			
 			
 			System.out.println("OK");

@@ -50,6 +50,9 @@ public class J2EE40 extends HttpServlet {
 		 String realpath = ServerContext.getRealPath("/");
 		 System.out.println(realpath);
 		 Set<String> paths = ServerContext.getResourcePaths("/");
+//		 for(String path:ServerContext.getResourcePaths("/")) {
+//			 System.out.println(path);
+//		 }
 		 for(String path:paths) {
 			 System.out.println(path);
 		 }

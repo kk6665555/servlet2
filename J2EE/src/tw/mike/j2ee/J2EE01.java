@@ -28,9 +28,6 @@ public class J2EE01 extends HttpServlet {
 			writer.flush();
 		}
 		System.out.println("I am Brad01");
-		
-		
-		
 		}
 	}
 

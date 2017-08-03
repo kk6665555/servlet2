@@ -32,15 +32,13 @@ public class MySessionListener implements HttpSessionListener{
 						"jdbc:mysql://localhost/oneone","root","root");
 			Statement stmt =conn.createStatement();
 			HttpSession session=arg0.getSession();
+			String dbid = (String)session.getAttribute("dbid");
+			stmt.executeUpdate(
+				"update member set islogin=0 where id=" + dbid);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.toString());
 		}
-		
-	
-		
-		
-		System.out.println("sessionDestroyed:"+ new Date().toString());
-		
+		System.out.println("sessionDestroyed:"+ new Date().toString());	
 	}
 
 }

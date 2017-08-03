@@ -10,7 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-Weclome,
+Weclome,${member["name"]}${member["id"]}<br>
 <jsp:getProperty property="name" name="member"/>
+
 </body>
 </html>

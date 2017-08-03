@@ -11,9 +11,9 @@
 
 	${param.x } + ${param.y } = ${param.x+param.y }
 	<form action="">
-		<input name="x" valus=${param.x}>
+		<input name="x" value="${param.x}">
 		+
-		<input name="y" valus=${param.y}>
+		<input name="y" value="${param.y}">
 		<input type="submit" value="=">
 		${param.x+param.y }
 	</form>

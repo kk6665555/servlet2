@@ -24,26 +24,28 @@ public class J2EE46 extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection(
 						"jdbc:mysql://localhost/oneone","root","root");
-			HttpSession session = request.getSession();
-			session.setMaxInactiveInterval(60);
+			
+			
 			Statement stmt= conn.createStatement();
 			
 			ResultSet rs =stmt.executeQuery("select * from memebr where account='Peter' and islogin=0");
 			if(rs.next()) {
+				HttpSession session = request.getSession();
+				session.setMaxInactiveInterval(60);
+				stmt.executeUpdate("update member set islogin=1 where account='Peter'");
+				session.setAttribute("dbid", "1");
+				System.out.println("new Login");
 				
+			}else {
+				System.out.println("Login already!");
 			}
 			
 			
-			stmt.executeUpdate("update member set islogin=1 where account='Peter'");
-			session.setAttribute("dbid", "1");
+			
 			
 			System.out.println("OK");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.toString());
 		}
-		
-		
-		
 	}
 }
